@@ -18,3 +18,6 @@ Deseables:
 - instructivo para saber como ejecutarlo
 - guía de instalación de las dependencias (si es que tiene)
 
+----------------------------------
+
+Ejecutar el archivo main.py desde el root directory.

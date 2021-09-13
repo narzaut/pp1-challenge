@@ -1,6 +1,6 @@
 num = ['', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciseis', 'diecisiete', 'dieciocho', 'diecinueve']
 num2 = ['', '', 'veinti', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta' ,'ochenta', 'noventa']
-num3 = ['', 'ciento', 'doscientos', 'trescientos', 'cuatroscientos', 'quinientos', 'seiscientos', 'sietecientos' , 'ochocientos', 'novecientos']
+num3 = ['', 'ciento', 'doscientos', 'trescientos', 'cuatroscientos', 'quinientos', 'seiscientos', 'setecientos' , 'ochocientos', 'novecientos']
 num4 = ['', 'mil', 'millon', 'millardo']
 
 number = input('Ingrese un valor numerico positivo: ')

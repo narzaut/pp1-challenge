@@ -80,4 +80,4 @@ def sevenDigitsBuilder(number):
 			firstDigits = str(number)[:3]
 		lastDigits = sixDigitsBuilder(int(str(number)[-6::]))
 		return hundredBuilder(int(firstDigits)) + ' ' + num4[2] + ' ' + str(lastDigits)
-	return 
+	return 'error'

@@ -3,10 +3,8 @@ num2 = ['', '', 'veinti', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setent
 num3 = ['', 'ciento', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos' , 'ochocientos', 'novecientos']
 num4 = ['', 'mil', 'millon', 'millardo']
 
-try:
-	numero = input('Ingrese un valor numerico positivo: ')
-except:
-	print('EOF')
+
+numero = input('Ingrese un valor numerico positivo: ')
 
 def twoDigitsBuilder(number):
 	try:

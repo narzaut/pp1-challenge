@@ -9,7 +9,6 @@ def test_109():
 def test_34223():
 	assert numberToWords(34223) == 'treinta cuatro mil doscientos veinti tres'
 
-
 def test_420():
 	assert numberToWords(420) == 'cuatrocientos veinti'
 

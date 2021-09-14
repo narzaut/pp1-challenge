@@ -107,5 +107,7 @@ def numberToWords(number):
 		return 'un millardo'
 	return 'Andate a cagar'
 	
-
-print(numberToWords(numero))
+if numero:
+	print(numberToWords(numero))
+else:
+	print('error')

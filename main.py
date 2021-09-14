@@ -3,12 +3,12 @@ num2 = ['', '', 'veinti', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setent
 num3 = ['', 'ciento', 'doscientos', 'trescientos', 'cuatroscientos', 'quinientos', 'seiscientos', 'setecientos' , 'ochocientos', 'novecientos']
 num4 = ['', 'mil', 'millon', 'millardo']
 
-number = input('Ingrese un valor numerico positivo: ')
+numero = input('Ingrese un valor numerico positivo: ')
 
-def test_twoDigitsBuilder(number):
+def twoDigitsBuilder(number):
 	try:
-		digit = str(number)[0]
-		digit2 = str(number)[1]
+		digit = number // 10 % 10
+		digit2 =  number % 10
 	except:
 		pass
 	if number < 20:
@@ -16,34 +16,31 @@ def test_twoDigitsBuilder(number):
 	if number == 20:
 		return 'veinte'
 	if number > 20 and number < 100:
-		digit = str(number)[0]
-		digit2 = str(number)[1]
-		return num2[int(digit)]+ ' ' + num[int(digit2)]
+		return num2[digit]+ ' ' + num[digit2]
 	
 
-def test_hundredBuilder(number):
+def hundredBuilder(number):
 	try:
-		digit = str(number)[0]
-		digit3 = str(number)[2]
-		digit2 = str(number)[1]
+		digit = number // 100 % 10
+		digit2 = number // 10 % 10
+		digit3 = number % 10
 	except:
 		pass
-
 	if number < 1:
 		return ''
 
 	if number > 0 and number < 100:
-		return test_twoDigitsBuilder(number)
+		return twoDigitsBuilder(number)
 	if number >= 100 and number < 1000:
 		if number == 100:
 			return 'cien'
-		if (digit2 == '1'):
-			digit2 = str(number)[1] + str(number)[2]
-			return num3[int(digit)] + ' ' + num[int(digit2)]	
-		return num3[int(digit)] + ' ' + num2[int(digit2)] + ' ' + num[int(digit3)]
+		if (digit2 == 1):
+			digit2 = int(str(digit2) + str(digit3))
+			return num3[digit] + ' ' + num[digit2]	
+		return num3[digit] + num2[digit2] + ' ' + num[digit3]
 
 
-def test_sixDigitsBuilder(number):
+def sixDigitsBuilder(number):
 	if number < 1000:
 		return ''
 	if number >= 1000 and number < 10000000:
@@ -60,15 +57,15 @@ def test_sixDigitsBuilder(number):
 			numbers =  str(number)[0] + str(number)[1] + str(number) [2]
 			hundreds = str(number)[3] + str(number)[4] + str(number)[5]
 
-		firstThree = str(test_hundredBuilder(int(numbers)))
+		firstThree = str(hundredBuilder(int(numbers)))
 
 		if number >= 1000 and number <= 1999:	
-			return num4[1] + ' ' + str(test_hundredBuilder(int(hundreds))	)
+			return num4[1] + ' ' + str(hundredBuilder(int(hundreds))	)
 		
-		return firstThree + ' ' + num4[1] + ' ' + str(test_hundredBuilder(int(hundreds)))
+		return firstThree + ' ' + num4[1] + ' ' + str(hundredBuilder(int(hundreds)))
 	
 
-def test_numberToWords(number):
+def numberToWords(number):
 	try:
 		number = int(number)
 		if number < 0:
@@ -80,10 +77,10 @@ def test_numberToWords(number):
 		return 'cero'
 
 	if number >= 1 and number < 1000:
-		return test_hundredBuilder(number)
+		return hundredBuilder(number)
 	
 	if number >= 1000 and number < 1000000:
-		return test_sixDigitsBuilder(number)
+		return sixDigitsBuilder(number)
 	
 	if number >= 1000000 and number < 1000000000:
 		if len(str(number)) == 7:
@@ -92,13 +89,12 @@ def test_numberToWords(number):
 			firstDigits = str(number)[:2]
 		if len(str(number)) == 9:
 			firstDigits = str(number)[:3]
-		lastDigits = test_sixDigitsBuilder(int(str(number)[-6::]))
-		return test_hundredBuilder(int(firstDigits)) + ' ' + num4[2] + ' ' + str(lastDigits)
+		lastDigits = sixDigitsBuilder(int(str(number)[-6::]))
+		return hundredBuilder(int(firstDigits)) + ' ' + num4[2] + ' ' + str(lastDigits)
 	
 	if number == 1000000000:
 		return 'un millardo'
 	return 'Andate a cagar'
 	
 
-wordedNumber = test_numberToWords(number)
-print(wordedNumber)
+print(numberToWords(numero))

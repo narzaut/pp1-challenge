@@ -1,10 +1,5 @@
 from builders import *
 
-try:
-	numero = input('Ingrese un valor numerico positivo: ')
-except:
-	print('EOF')
-
 def numberToWords(number):
 	try:
 		number = int(number)
@@ -26,6 +21,7 @@ def numberToWords(number):
 	return 'Andate a cagar'
 	
 try:
+	numero = input('Ingrese un valor numerico positivo: ')
 	print(numberToWords(numero))
 except:
 	print('error')

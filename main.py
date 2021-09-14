@@ -1,6 +1,6 @@
 num = ['', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciseis', 'diecisiete', 'dieciocho', 'diecinueve']
 num2 = ['', '', 'veinti', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta' ,'ochenta', 'noventa']
-num3 = ['', 'ciento', 'doscientos', 'trescientos', 'cuatroscientos', 'quinientos', 'seiscientos', 'setecientos' , 'ochocientos', 'novecientos']
+num3 = ['', 'ciento', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos' , 'ochocientos', 'novecientos']
 num4 = ['', 'mil', 'millon', 'millardo']
 
 numero = input('Ingrese un valor numerico positivo: ')
@@ -34,10 +34,18 @@ def hundredBuilder(number):
 	if number >= 100 and number < 1000:
 		if number == 100:
 			return 'cien'
+		if digit3 == 0:
+			return num3[digit] + ' ' + num2[digit2]
 		if (digit2 == 1):
 			digit2 = int(str(digit2) + str(digit3))
-			return num3[digit] + ' ' + num[digit2]	
-		return num3[digit] + num2[digit2] + ' ' + num[digit3]
+			return num3[digit] + ' ' + num[digit2]
+		if digit2 > 0:
+			
+			return num3[digit] + ' ' + num2[digit2] + ' ' + num[digit3]
+		
+
+		return num3[digit] + ' ' + num[digit3]
+
 
 
 def sixDigitsBuilder(number):
@@ -69,9 +77,9 @@ def numberToWords(number):
 	try:
 		number = int(number)
 		if number < 0:
-			return 'Expresion incorrecta'	
+			return 'Expresión inválida'	
 	except:
-		return 'Expresion incorrecta'	
+		return 'Expresión inválida'	
 	
 	if number == 0:
 		return 'cero'
